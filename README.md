@@ -60,22 +60,21 @@
 1. Запустите main.py.
 
 2. Введите интересующий вас тикер акции (например, 'AAPL' для Apple Inc).
-
 3. Введите желаемый временной период для анализа (например, '1mo' для данных за один месяц или период времени 2023.01.01-2023.08.01).
 4. Программа обработает введённые данные, загрузит соответствующие данные об акциях, рассчитает скользящее среднее и отобразит график
 
-![image](https://github.com/user-attachments/assets/cb7adced-6b60-4ac0-b196-50105133ce79)
+![image](https://github.com/user-attachments/assets/6932d840-b113-48dd-babf-e026a4eb3612)
 
 5. Вычисляет и выводит в консоль среднюю цену закрытия акций за заданный период
 
-![image](https://github.com/user-attachments/assets/19988da0-db2e-4cd0-8ade-b3067dde17f0)
+![image](https://github.com/user-attachments/assets/9cb2762a-dd5b-490a-b67b-983379839733)
 
 6. Введите порог колебания цен в данный период (например, 17). Если разница превышает порог, пользователь получает уведомление в консоль.
 
-![image](https://github.com/user-attachments/assets/c364379f-acbe-480a-a17a-fe121e67defa)
+![image](https://github.com/user-attachments/assets/706bafe1-83e1-40ef-880b-c8953d4de44d)
 
 7. Для сохранення данных введите имя файла. Если Вы хотите завершить работу программы ввете "Close"
 
-![image](https://github.com/user-attachments/assets/a117cffd-d58d-4d1b-a267-d90d919c32c6)
+![image](https://github.com/user-attachments/assets/5cd435a8-abf5-4e99-85ce-189acd01057d)
 
 Задания нацелены на улучшение пользовательского опыта и расширение аналитических возможностей проекта, предоставляя глубокие и настраиваемые инструменты для анализа данных об акциях.
