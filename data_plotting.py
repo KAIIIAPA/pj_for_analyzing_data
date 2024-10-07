@@ -1,12 +1,22 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import matplotlib as mpl
 
 
 import data_download
 
 
-def create_and_save_plot(data, ticker, period, filename=None):
-    plt.figure(figsize=(10, 6))
+def create_and_save_plot(data, ticker, period, style="fivethirtyeight", filename=None):
+    """
+    :param data: - DataFrame
+    :param ticker: - Тикер акции
+    :param period: - Периоды времени для данных
+    :param style: - Стиль оформления графика
+    :param filename: - Имя файла для сохранения данных
+    :return: - Возвращаем построенный график согласно введенным параметрам и сохраняем согласно заданному имени
+    """
+    plt.figure(figsize=(16, 6))
+    plt.style.use([style])
 
     if 'Date' not in data:
         if pd.api.types.is_datetime64_any_dtype(data.index):
@@ -30,6 +40,7 @@ def create_and_save_plot(data, ticker, period, filename=None):
     plt.xlabel("Дата")
     plt.ylabel("Цена")
     plt.legend()
+
 
     if filename is None:
         filename = f"{ticker}_{period}_stock_price_chart.png"

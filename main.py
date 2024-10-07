@@ -7,19 +7,24 @@ def main():
     print("Вот несколько примеров биржевых тикеров, которые вы можете рассмотреть: AAPL (Apple Inc), GOOGL (Alphabet Inc), "
           "MSFT (Microsoft Corporation), AMZN (Amazon.com Inc), TSLA (Tesla Inc).")
     print("Общие периоды времени для данных о запасах включают: 1д, 5д, 1мес, 3мес, 6мес, 1г, 2г, 5г, 10л, с начала года, "
-          "макс. Также период времени может принимать конкретные даты начала и окончания")
+          "макс. Также период времени может принимать конкретные даты начала и окончания.")
+    print("Имеется возможность выбирать стили оформления графика. Вот несколько стилей, которые можно применить:"
+          " Solarize_Light2, _classic_test_patch, bmh, fast, fivethirtyeight, seaborn-v0_8")
 
     ticker = input("Введите тикер акции (например, «AAPL» для Apple Inc): ")
-    period = input(("Введите период для данных или конкретные даты начала и окончания "
-                    "(например, '1mo' для одного месяца или 2016.01.01-2016.06.01): "))
-
+    period = input(("Введите период для данных или конкретные даты начала и окончания. "
+                    "(Например, '1mo' для одного месяца или 2016.01.01-2016.06.01): "))
+    style = input("Введите стиль оформления графика (по умолчанию установлен: fivethirtyeight). Например, 'fast': ")
     # Fetch stock data
     try:
         stock_data = dd.fetch_stock_data(ticker, period)
         # Add moving average to the data
         stock_data = dd.add_moving_average(stock_data)
         # Plot the data
-        dplt.create_and_save_plot(stock_data, ticker, period)
+        if len(style) == 0:
+            dplt.create_and_save_plot(stock_data, ticker, period)
+        else:
+            dplt.create_and_save_plot(stock_data, ticker, period, style)
 
         # вычисляем и выводит среднюю цену закрытия акций за заданный период
         average_price = dplt.calculate_and_display_average_price(stock_data)
