@@ -25,6 +25,8 @@ def create_and_save_plot(data, ticker, period, style="fivethirtyeight", filename
             plt.plot(dates, data['Moving_Average'].values, label='Moving Average')
             rsi_series = data_download.rsifunc(data)
             plt.plot(rsi_series, label='RSI')
+            # Вычисление стандартного отклонения
+            std_close = data_download.calculate_std(data)
         else:
             print("Информация о дате отсутствует или не имеет распознаваемого формата.")
             return
@@ -35,12 +37,15 @@ def create_and_save_plot(data, ticker, period, style="fivethirtyeight", filename
         plt.plot(data['Date'], data['Moving_Average'], label='Moving Average')
         rsi_series = data_download.rsifunc(data)
         plt.plot(rsi_series, label='RSI')
+        # Вычисление стандартного отклонения
+        std_close = data_download.calculate_std(data)
 
     plt.title(f"{ticker} Цена акций с течением времени + RSI Indicator")
     plt.xlabel("Дата")
     plt.ylabel("Цена")
+    # Добавление информации о стандартном отклонении под графиком
+    plt.text(0.9, 0.3, f'Стандартное отклонение: ${std_close:.2f}', ha='right', va='bottom', transform=plt.gca().transAxes)
     plt.legend()
-
 
     if filename is None:
         filename = f"{ticker}_{period}_stock_price_chart.png"
