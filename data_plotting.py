@@ -44,7 +44,7 @@ def create_and_save_plot(data, ticker, period, style="fivethirtyeight", filename
     plt.xlabel("Дата")
     plt.ylabel("Цена")
     # Добавление информации о стандартном отклонении под графиком
-    plt.text(0.9, 0.3, f'Стандартное отклонение: ${std_close:.2f}', ha='right', va='bottom', transform=plt.gca().transAxes)
+    plt.text(0.9, 0.8, f'Стандартное отклонение цены закрытия: ${std_close:.2f}', ha='right', va='bottom', transform=plt.gca().transAxes)
     plt.legend()
 
     if filename is None:
