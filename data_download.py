@@ -43,7 +43,6 @@ def rsifunc(data, periods=7):
     return rsi
 
 
-
 # Функция для расчета стандартного отклонения
 def calculate_std(data):
     '''

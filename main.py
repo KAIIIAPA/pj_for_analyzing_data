@@ -43,6 +43,13 @@ def main():
         # Cохраняем загруженные данные об акциях в CSV файл
         filename = input("Введите имя файла для сохранения данных (пример, My_file): ")
         dplt.export_data_to_csv(stock_data, filename=filename + ".csv")
+
+        com = input("Для получения интерактивного графика введите y: ")
+        if com == 'y':
+            dplt.interactive_graph(stock_data)
+            print("Работа программы завершена!")
+        else:
+            print("Работа программы завершена!")
     except:
         print("Были введены некорректные данные даты")
 

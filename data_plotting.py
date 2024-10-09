@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-import matplotlib as mpl
+import plotly.express as px
 
 
 import data_download
@@ -98,3 +98,18 @@ def export_data_to_csv(data, filename):
         df.to_csv(filename, index=True)
         print(f'Данные сохранены в файл {filename}. Работа программы завершена')
 
+
+def interactive_graph(data):
+    '''
+    :param data: DataFrame
+    :return: Построение интерактивного графика
+    '''
+    # Создаем DataFrame из данных
+    df = pd.DataFrame(data)
+    df = df.reset_index()
+    # Вычисление среднего значения колонки 'Close'
+    mean_close = df['Close'].mean()
+    print(f'Среднее значение Close: {mean_close}')
+    # Построение интерактивного графика
+    fig = px.line(df, x="Date", y=['Open', 'High', 'Low', 'Close'], markers="arrow")
+    fig.show()
